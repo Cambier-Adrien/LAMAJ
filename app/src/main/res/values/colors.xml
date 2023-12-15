@@ -2,11 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_color">#0a111b</color>
-    <color name="opacity_color">#80000000</color>
-    <color name="box_color">#232b35</color>
-    <color name="TitleColor">#FFFFFFFF</color>
-    <color name="TextColor">#9ea0a4</color>
-    <color name="blue">#88e8f2</color>
     <color name="transparent">#00FFFFFF</color>
+
+    <!-- Thème Clair -->
+
+    <color name="background_color_light">#F3F3F9</color>
+    <color name="box_color_light">#FFFFFF</color>
+    <color name="TextColor_light">#3A4B44</color>
+    <color name="buttonColor_light">#BBEBEF</color>
+    <color name="textButtonColor_light">#2C5153</color>
+
+    <!-- Thème Sombre -->
+
+    <color name="background_color_dark">#0C1512</color>
+    <color name="box_color_dark">#19211E</color>
+    <color name="TextColor_dark">#B9CBC3</color>
+    <color name="buttonColor_dark">#1E4D51</color>
+    <color name="textButtonColor_dark">#B3E2E6</color>
 </resources>

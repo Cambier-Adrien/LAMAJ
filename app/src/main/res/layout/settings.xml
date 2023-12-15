@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/opacity_color"
     android:gravity="center">
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/pop_up"
-        android:orientation="vertical">
+        style="@style/BoxColor">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:background="@drawable/pop_up">
+            style="@style/BoxColor">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lexend_deca"
                 android:text="Settings"
-                android:textColor="@color/white"
-                android:textSize="20dp"/>
+                style="@style/Title"
+                android:layout_marginTop="0dp"/>
         </LinearLayout>
         <ScrollView
             android:layout_width="match_parent"
@@ -38,7 +34,8 @@
                         style="@style/SettingsName"
                         android:text="Change to Light Mode"/>
                     <Switch
-                        style="@style/SettingsSwitch"/>
+                        style="@style/SettingsSwitch"
+                        android:id="@+id/switch_light_mode"/>
                 </LinearLayout>
                 <LinearLayout
                 style="@style/SettingsBox">
@@ -46,7 +43,8 @@
                         style="@style/SettingsName"
                         android:text="Change to Dark Mode"/>
                     <Switch
-                        style="@style/SettingsSwitch"/>
+                        style="@style/SettingsSwitch"
+                        android:id="@+id/switch_dark_mode"/>
                 </LinearLayout>
                 <LinearLayout
                     style="@style/SettingsBox">
@@ -86,24 +84,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="end"
             android:padding="15dp"
-            android:background="@drawable/pop_up">
+            style="@style/BoxColor"
+            android:gravity="center">
             <Button
+                android:layout_height="40dp"
+                android:layout_width="125dp"
                 style="@style/Cancel"
                 android:id="@+id/Cancel"
                 android:text="Cancel"
-                app:backgroundTint="@color/blue"
-                app:backgroundTintMode="src_in"
-                android:background="@color/transparent"
                 android:onClick="CancelSettings"/>
+
             <Button
-                style="@style/Save"
+                android:layout_height="40dp"
+                android:layout_width="125dp"
                 android:id="@+id/Save"
-                android:text="Save"
-                app:backgroundTint="@color/blue"
-                app:backgroundTintMode="src_in"
-                android:onClick="SaveSettings"/>
+                style="@style/Save"
+                android:onClick="SaveSettings"
+                android:text="Save"/>
         </LinearLayout>
     </LinearLayout>
 

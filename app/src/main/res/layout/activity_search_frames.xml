@@ -73,27 +73,75 @@
                     <Button
                         android:layout_height="40dp"
                         android:layout_width="wrap_content"
-                        style="@style/Import"
-                        android:text="Import Data"
+                        style="@style/Change"
+                        android:text="Change Data"
                         android:onClick="OpenImport"/>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:id="@+id/empty"
-                style="@style/Empty"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
-                <ImageView
-                    style="@style/EmptyImg"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
                 <TextView
-                    style="@style/Text"
+                    style="@style/Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="You must load data first"/>
+                    android:text="Check Data" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        style="@style/SearchBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Search per IP"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="60dp"
+                        android:singleLine="true"
+                        android:textSize="20dp" />
+
+                    <ImageButton
+                        style="@style/SearchButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/search" />
+                </RelativeLayout>
+                <RadioGroup
+                    android:id="@+id/SearchGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/SearchIpSrc"
+                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        style="@style/SearchSettings"
+                        android:text="Ip Src"/>
+                    <RadioButton
+                        android:id="@+id/SearchIpDst"
+                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        style="@style/SearchSettings"
+                        android:text="Ip Dst"/>
+                    <RadioButton
+                        android:id="@+id/SearchProtocol"
+                        android:layout_height="40dp"
+                        android:layout_width="wrap_content"
+                        style="@style/SearchSettings"
+                        android:text="Protocol"/>
+                </RadioGroup>
+
             </LinearLayout>
             <ImageView
                 android:layout_width="100dp"
