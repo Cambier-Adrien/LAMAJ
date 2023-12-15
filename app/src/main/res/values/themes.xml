@@ -52,19 +52,6 @@
         <item name="drawableTint">@color/textButtonColor_light</item>
     </style>
 
-    <style name="Change">
-        <item name="android:textSize">15dp</item>
-        <item name="android:textColor">@color/textButtonColor_light</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
-        <item name="android:background">@drawable/button_background_light</item>
-        <item name="backgroundTint">@color/buttonColor_light</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:drawableLeft">@drawable/change</item>
-        <item name="android:paddingLeft">15dp</item>
-        <item name="android:paddingRight">15dp</item>
-        <item name="drawableTint">@color/textButtonColor_light</item>
-    </style>
-
     <style name="Save">
         <item name="android:textSize">15dp</item>
         <item name="android:textColor">@color/textButtonColor_light</item>
@@ -169,11 +156,43 @@
         <item name="android:textColor">@color/textButtonColor_light</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:background">@drawable/button_background_light</item>
-        <item name="backgroundTint">@color/box_color_light</item>
+        <item name="backgroundTint">@color/backgroundtint_selector_light</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:paddingLeft">5dp</item>
         <item name="android:paddingRight">15dp</item>
         <item name="android:layout_marginRight">10dp</item>
+        <item name="android:button">@drawable/drawable_rotation_selector</item>
+        <item name="buttonTint">@color/drawabletint_selector_light</item>
+    </style>
+
+    <style name="FrameContainer">
+        <item name="android:background">@drawable/button_background_light</item>
+        <item name="android:backgroundTint">@color/box_color_light</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="FrameText">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/textButtonColor_light</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="SelectFrame">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:src">@drawable/selector</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/transparent</item>
+        <item name="android:tint">@color/textButtonColor_light</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_centerVertical">true</item>
     </style>
 
     <style name="Theme.LAMAJ" parent="Base.Theme.LAMAJ" />
