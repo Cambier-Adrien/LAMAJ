@@ -37,7 +37,6 @@
         <item name="android:textColor">@color/TextColor_dark</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:layout_marginTop">30dp</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Import">
@@ -53,6 +52,19 @@
         <item name="drawableTint">@color/textButtonColor_dark</item>
     </style>
 
+    <style name="Remove">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/textButtonColor_dark</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:background">@drawable/button_background_dark</item>
+        <item name="backgroundTint">@color/buttonColor_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawableLeft">@drawable/remove</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="drawableTint">@color/textButtonColor_dark</item>
+    </style>
+
     <style name="Save">
         <item name="android:textSize">15dp</item>
         <item name="android:textColor">@color/textButtonColor_dark</item>
@@ -61,7 +73,6 @@
         <item name="android:gravity">center</item>
         <item name="android:paddingLeft">40dp</item>
         <item name="android:paddingRight">40dp</item>
-        <item name="android:layout_marginLeft">5dp</item>
         <item name="backgroundTint">@color/buttonColor_dark</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -74,7 +85,6 @@
         <item name="android:gravity">center</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
-        <item name="android:layout_marginRight">5dp</item>
         <item name="backgroundTint">@color/transparent</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -88,16 +98,43 @@
         <item name="android:layout_marginRight">10dp</item>
     </style>
 
-    <style name="SettingsBox">
+    <style name="SettingsBoxTop">
         <item name="android:background">@drawable/box_up_dark</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">10dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
         <item name="tint">@color/background_color_dark</item>
         <item name="android:textColorHint">@color/TextColor_dark</item>
-        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SettingsBox">
+        <item name="android:background">@color/box_color_dark</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="tint">@color/background_color_dark</item>
+        <item name="android:textColorHint">@color/TextColor_dark</item>
+    </style>
+
+    <style name="SettingsBoxBottom">
+        <item name="android:background">@drawable/box_down_dark</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="tint">@color/background_color_dark</item>
+        <item name="android:textColorHint">@color/TextColor_dark</item>
     </style>
 
     <style name="SettingsName">
@@ -106,14 +143,15 @@
         <item name="android:textColor">@color/TextColor_dark</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:textSize">15dp</item>
-        <item name="android:layout_weight">1</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_centerVertical">true</item>
     </style>
 
-    <style name="SettingsSwitch">
+    <style name="SettingsCheck">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="buttonTint">@color/drawabletint_selector_dark</item>
     </style>
 
     <style name="BoxColor">
@@ -141,9 +179,9 @@
 
     <style name="SearchBar">
         <item name="android:background">@drawable/button_background_dark</item>
-        <item name="android:backgroundTint">@color/box_color_dark</item>
+        <item name="backgroundTint">@color/box_color_dark</item>
         <item name="android:textColorHint">@color/TextColor_dark</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/TextColor_dark</item>
     </style>
 
     <style name="SearchButton">
@@ -152,16 +190,10 @@
     </style>
 
     <style name="SearchSettings">
-        <item name="android:textSize">15dp</item>
-        <item name="android:textColor">@color/textButtonColor_dark</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:background">@drawable/button_background_dark</item>
-        <item name="android:backgroundTint">@color/backgroundtint_selector_dark</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:paddingRight">15dp</item>
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:button">@drawable/drawable_rotation_selector</item>
-        <item name="buttonTint">@color/drawabletint_selector_dark</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
     </style>
 
     <style name="FrameContainer">
@@ -193,6 +225,21 @@
         <item name="android:tint">@color/textButtonColor_dark</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="BackButton">
+        <item name="android:background">@drawable/back</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="ImportSearch">
+        <item name="android:background">@drawable/button_background_dark</item>
+        <item name="android:backgroundTint">@color/box_color_dark</item>
+        <item name="android:textColorHint">@color/TextColor_dark</item>
+        <item name="android:textColor">@color/TextColor_dark</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
 </resources>

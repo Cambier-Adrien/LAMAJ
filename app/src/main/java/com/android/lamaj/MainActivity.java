@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     public void OpenSettings(View view) {
         DialogUse.OpenSettings(this, view);
     }
-
     public void OpenImport(View view) {
         DialogUse.OpenImport(this, view);
     }

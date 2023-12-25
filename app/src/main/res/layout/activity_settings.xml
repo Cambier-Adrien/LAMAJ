@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+        <Button
+            android:id="@+id/back"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            style="@style/BackButton"
+            android:onClick="CloseSettings"/>
+
+        <TextView
+            style="@style/MainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="0dp"
+            android:layout_toRightOf="@id/back"
+            android:text="Settings" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Text"
+                    android:text="Change application interface"
+                    android:layout_marginBottom="20dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingsBoxTop">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:text="Change to Light Mode"/>
+                    <CheckBox
+                        android:id="@+id/check_light_mode"
+                        style="@style/SettingsCheck"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingsBoxBottom">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:text="Change to Dark Mode" />
+                    <CheckBox
+                        android:id="@+id/check_dark_mode"
+                        style="@style/SettingsCheck"/>
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Text"
+                    android:text="Change display settings"
+                    android:layout_marginBottom="20dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingsBoxTop">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:text="Enable ICMP frames"/>
+                    <CheckBox
+                        style="@style/SettingsCheck" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingsBox">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:text="Enable TCP frames"/>
+                    <CheckBox
+                        style="@style/SettingsCheck" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingsBox">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:text="Enable UDP frames"/>
+                    <CheckBox
+                        style="@style/SettingsCheck" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SettingsBoxBottom">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:text="Enable HTTP frames"/>
+                    <CheckBox
+                        style="@style/SettingsCheck" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</RelativeLayout>

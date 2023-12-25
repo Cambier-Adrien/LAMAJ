@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        style="@style/BoxColor"
+        android:layout_margin="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            style="@style/BoxColor">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insert Url"
+                style="@style/Title"
+                android:layout_margin="0dp"
+                android:layout_gravity="left"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="example.com"
+                android:id="@+id/Import"
+                android:inputType="text"
+                style="@style/ImportSearch"
+                android:paddingLeft="20dp"
+                android:paddingRight="60dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:gravity="end"
+            style="@style/BoxColor">
+            <Button
+                android:layout_height="40dp"
+                android:layout_width="125dp"
+                style="@style/Cancel"
+                android:id="@+id/Cancel"
+                android:text="Cancel"
+                android:onClick="CancelSettings"/>
+
+            <Button
+                android:layout_height="40dp"
+                android:layout_width="125dp"
+                android:id="@+id/Save"
+                style="@style/Save"
+                android:onClick="SaveSettings"
+                android:text="Save" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
