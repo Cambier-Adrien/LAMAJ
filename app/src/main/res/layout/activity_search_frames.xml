@@ -126,8 +126,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/search"
-                        android:onClick="OpenSearch"/>
+                        android:src="@drawable/search"/>
                 </RelativeLayout>
 
 
@@ -140,11 +139,11 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
                 <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Text"
-                android:text="Wireshark frames"
-                android:layout_marginBottom="10dp"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Text"
+                    android:text="Wireshark frames"
+                    android:layout_marginBottom="10dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -421,13 +420,6 @@
                         style="@style/SelectFrame"/>
                 </RelativeLayout>
             </LinearLayout>
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                style="@style/sharkImg"
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/body"
-                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

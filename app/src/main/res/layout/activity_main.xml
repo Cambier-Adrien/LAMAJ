@@ -95,13 +95,6 @@
                     android:layout_height="wrap_content"
                     android:text="You must load data first"/>
             </LinearLayout>
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                style="@style/sharkImg"
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/body"
-                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

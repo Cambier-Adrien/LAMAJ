@@ -53,6 +53,8 @@ public abstract class DialogUse extends Context {
 
         save.setOnClickListener(view1 -> {
             Intent intent = new Intent(activity, SearchFrames.class);
+            String url = editText.getText().toString();
+            intent.putExtra("url", url);
             activity.startActivity(intent);
             dialogImport.dismiss();
         });

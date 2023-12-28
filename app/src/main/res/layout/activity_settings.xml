@@ -123,13 +123,7 @@
                     <CheckBox
                         style="@style/SettingsCheck" />
                 </RelativeLayout>
-
             </LinearLayout>
-
         </LinearLayout>
-
-
-
     </ScrollView>
-
 </RelativeLayout>

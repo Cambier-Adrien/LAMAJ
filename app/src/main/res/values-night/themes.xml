@@ -172,11 +172,6 @@
         <item name="android:src">@drawable/box</item>
     </style>
 
-    <style name="sharkImg">
-        <item name="tint">@color/buttonColor_dark</item>
-        <item name="android:src">@drawable/requin</item>
-    </style>
-
     <style name="SearchBar">
         <item name="android:background">@drawable/button_background_dark</item>
         <item name="backgroundTint">@color/box_color_dark</item>
