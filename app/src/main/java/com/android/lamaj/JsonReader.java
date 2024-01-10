@@ -11,7 +11,7 @@ import java.net.URL;
 public class JsonReader {
 
     private static final String USER = "ca200318";
-    private static final String PASSWORD = "CarTablE2004*";
+    private static final String PASSWORD = "";
 
     public static String readJsonData(String url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
