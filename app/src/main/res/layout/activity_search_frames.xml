@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SearchFrames">
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             style="@style/SettingsButton"
             android:onClick="OpenSettings"/>
     </RelativeLayout>
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
@@ -75,7 +75,7 @@
                         android:layout_width="wrap_content"
                         style="@style/Import"
                         android:text="Change Data"
-                        android:onClick="OpenImport"
+                        android:onClick="OpenChange"
                         android:drawableLeft="@drawable/pencil"/>
                     <Button
                         android:layout_height="40dp"
@@ -112,7 +112,7 @@
                         style="@style/SearchBar"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:text="Search per IP"
+                        android:text="Search a frame"
                         android:paddingLeft="20dp"
                         android:paddingRight="60dp"
                         android:singleLine="true"
@@ -145,281 +145,13 @@
                     android:text="Wireshark frames"
                     android:layout_marginBottom="10dp"/>
             </LinearLayout>
-
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-                <RelativeLayout
-                    style="@style/FrameContainer">
-
-                    <TextView
-                        android:id="@+id/IPsrc"
-                        style="@style/FrameText"
-                        android:layout_height="wrap_content"
-                        android:text="192.168.7.10" />
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout><RelativeLayout
-                style="@style/FrameContainer">
-                <TextView
-                    android:text="192.168.7.10"
-                    style="@style/FrameText"
-                    android:id="@+id/IPsrc"/>
-                <TextView
-                    android:text="192.168.7.10"
-                    style="@style/FrameText"
-                    android:id="@+id/IPdst"
-                    android:layout_toRightOf="@+id/IPsrc"/>
-                <TextView
-                    android:text="ICMP"
-                    style="@style/FrameText"
-                    android:id="@+id/Protocol"
-                    android:layout_toRightOf="@+id/IPdst"/>
-                <ImageButton
-                    style="@style/SelectFrame"/>
-            </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-                <RelativeLayout
-                    style="@style/FrameContainer">
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPsrc"/>
-                    <TextView
-                        android:text="192.168.7.10"
-                        style="@style/FrameText"
-                        android:id="@+id/IPdst"
-                        android:layout_toRightOf="@+id/IPsrc"/>
-                    <TextView
-                        android:text="ICMP"
-                        style="@style/FrameText"
-                        android:id="@+id/Protocol"
-                        android:layout_toRightOf="@+id/IPdst"/>
-                    <ImageButton
-                        style="@style/SelectFrame"/>
-                </RelativeLayout>
-            </LinearLayout>
+                android:paddingRight="20dp"
+                android:id="@+id/frameList"/>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

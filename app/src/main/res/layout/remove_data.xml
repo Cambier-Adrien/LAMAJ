@@ -47,15 +47,13 @@
                 android:layout_width="125dp"
                 style="@style/Cancel"
                 android:id="@+id/Cancel"
-                android:text="Cancel"
-                android:onClick="CancelSettings"/>
+                android:text="Cancel"/>
 
             <Button
                 android:layout_height="40dp"
                 android:layout_width="125dp"
                 android:id="@+id/Save"
                 style="@style/Save"
-                android:onClick="SaveSettings"
                 android:text="Save"/>
         </LinearLayout>
     </LinearLayout>

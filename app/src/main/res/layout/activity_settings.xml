@@ -32,7 +32,7 @@
             android:text="Settings" />
 
     </RelativeLayout>
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
@@ -91,6 +91,7 @@
                         style="@style/SettingsName"
                         android:text="Enable ICMP frames"/>
                     <CheckBox
+                        android:id="@+id/checkICMP"
                         style="@style/SettingsCheck" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -101,6 +102,7 @@
                         style="@style/SettingsName"
                         android:text="Enable TCP frames"/>
                     <CheckBox
+                        android:id="@+id/checkTCP"
                         style="@style/SettingsCheck" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -111,6 +113,7 @@
                         style="@style/SettingsName"
                         android:text="Enable UDP frames"/>
                     <CheckBox
+                        android:id="@+id/checkUDP"
                         style="@style/SettingsCheck" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -121,9 +124,10 @@
                         style="@style/SettingsName"
                         android:text="Enable HTTP frames"/>
                     <CheckBox
+                        android:id="@+id/checkHTTP"
                         style="@style/SettingsCheck" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 </RelativeLayout>

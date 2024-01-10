@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Import Frames"
+                android:text="Change Frames"
                 style="@style/Title"
                 android:layout_margin="0dp"
                 android:layout_gravity="left"/>
@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Would you like to import wireshark frames loaded in the website ?"
+                android:text="Are you sure that you want to erase former data to load new ones ?"
                 style="@style/Text"
                 android:layout_margin="0dp"/>
         </LinearLayout>
