@@ -65,6 +65,7 @@ public class FramePayload extends AppCompatActivity {
     }
 
     private void copyToClipboard(String textToCopy) {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         Toast.makeText(this, "Text Copied to Clipboard", Toast.LENGTH_SHORT).show();
     }
 }

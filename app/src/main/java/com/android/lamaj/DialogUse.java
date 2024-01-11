@@ -136,13 +136,13 @@ public abstract class DialogUse extends Context {
         void onImportComplete();
     }
 
-    public static void importFrames(AppCompatActivity activity, FrameDB frameDB, OnImportCompleteListener listener) {
+    public static void importFrames(AppCompatActivity activity, FrameDB frameDB, OnImportCompleteListener listener, int start) {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
                 try {
-                    int start = 1;
-                    String jsonData = JsonReader.readJsonData("https://1dbd-46-193-6-178.ngrok-free.app/?start=" + start);
+                    frameDB.deleteAllFrames();
+                    String jsonData = JsonReader.readJsonData("https://3d08-46-193-6-178.ngrok-free.app/?start=" + start);
 
                     try {
                         DataProcessor.processAndSaveData(frameDB, jsonData);
@@ -151,10 +151,6 @@ public abstract class DialogUse extends Context {
                     }
 
                     activity.runOnUiThread(() -> {
-                        // Mettez à jour l'UI ici si nécessaire
-                        // Par exemple, vous pourriez afficher une barre de progression
-
-                        // Informez l'activité que l'importation est terminée
                         if (listener != null) {
                             listener.onImportComplete();
                         }

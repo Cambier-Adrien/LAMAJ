@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("isUDPChecked", true);
                 editor.putBoolean("isHTTPChecked", true);
                 editor.putBoolean("isFirstLaunch", false);
+                editor.putInt("whichPage", 1);
                 editor.apply();
             }
 

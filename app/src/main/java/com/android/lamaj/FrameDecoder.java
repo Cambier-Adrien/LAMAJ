@@ -50,34 +50,6 @@ public class FrameDecoder {
         String protocol;
 
         switch (protocolValue) {
-            case 1:
-                protocol = "ICMP";
-                break;
-            case 6:
-                protocol = "TCP";
-                break;
-            case 17:
-                protocol = "UDP";
-                break;
-            case 50:
-                protocol = "ESP";
-                break;
-            case 51:
-                protocol = "AH";
-                break;
-            case 89:
-                protocol = "OSPF";
-                break;
-            case 112:
-                protocol = "VRRP";
-                break;
-            case 113:
-                protocol = "PGM";
-                break;
-            case 80:
-                protocol = "HTTP";
-                break;
-            // Ajoutez des protocoles ici
             default:
                 protocol = String.valueOf(protocolValue);
                 break;
@@ -87,8 +59,9 @@ public class FrameDecoder {
     }
 
     private static String getPayload(byte[] bytes) {
-        int payloadLength = (int) (bytes.length - (protocolPosition + 1));
-        byte[] payloadBytes = Arrays.copyOfRange(bytes, (int) (protocolPosition + 1), bytes.length);
+        int payloadPosition = (int) protocolPosition + 1;
+        int payloadLength = bytes.length - payloadPosition;
+        byte[] payloadBytes = Arrays.copyOfRange(bytes, payloadPosition, bytes.length);
         String payload = Base64.encodeToString(payloadBytes, Base64.DEFAULT);
 
         return payload;

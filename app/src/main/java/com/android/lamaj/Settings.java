@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -20,11 +21,14 @@ public class Settings extends AppCompatActivity {
 
     CheckBox checkLightMode;
     Button buttonBack;
+    Button addButton;
     CheckBox checkDarkMode;
     CheckBox checkICMP;
     CheckBox checkTCP;
     CheckBox checkUDP;
     CheckBox checkHTTP;
+
+    EditText page;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class Settings extends AppCompatActivity {
         checkTCP = findViewById(R.id.checkTCP);
         checkUDP = findViewById(R.id.checkUDP);
         checkHTTP = findViewById(R.id.checkHTTP);
+        page = findViewById(R.id.textPage);
+        addButton = findViewById(R.id.addButton);
 
         SharedPreferences sharedPreferences = getSharedPreferences("my_app_settings", MODE_PRIVATE);
 
@@ -47,6 +53,7 @@ public class Settings extends AppCompatActivity {
         boolean isTCPChecked = sharedPreferences.getBoolean("isTCPChecked", true);
         boolean isUDPChecked = sharedPreferences.getBoolean("isUDPChecked", true);
         boolean isHTTPChecked = sharedPreferences.getBoolean("isHTTPChecked", true);
+        int whichPage = sharedPreferences.getInt("whichPage", 1);
 
         checkDarkMode.setChecked(isDarkMode);
         checkLightMode.setChecked(isLightMode);
@@ -54,8 +61,24 @@ public class Settings extends AppCompatActivity {
         checkTCP.setChecked(isTCPChecked);
         checkUDP.setChecked(isUDPChecked);
         checkHTTP.setChecked(isHTTPChecked);
+        page.setText(String.valueOf(whichPage));
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int currentWhichPage = sharedPreferences.getInt("whichPage", 1);
+
+                int newWhichPage = currentWhichPage + 1;
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("whichPage", newWhichPage);
+                editor.apply();
+
+                page.setText(String.valueOf(newWhichPage));
+            }
+        });
 
         checkICMP.setOnCheckedChangeListener((buttonView, isChecked) -> {
             editor.putBoolean("isICMPChecked", isChecked);
@@ -103,8 +126,18 @@ public class Settings extends AppCompatActivity {
         });
 
         buttonBack.setOnClickListener(view -> {
-            editor.apply();
-            finish();
+            String pageValue = page.getText().toString();
+
+            if (!pageValue.isEmpty() && !pageValue.equals("0")) {
+                int pageNumber = Integer.parseInt(pageValue);
+
+                editor.putInt("whichPage", pageNumber);
+                editor.apply();
+
+                finish();
+            } else {
+                page.setError("Please enter a valid number");
+            }
         });
     }
 

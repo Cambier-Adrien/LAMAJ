@@ -8,15 +8,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class SearchFrames extends AppCompatActivity implements DialogUse.OnImportCompleteListener{
 
-    private RecyclerView recyclerView;
-    private FrameDB frameDB;
-    private FrameListAdapter frameListAdapter;
-
+    RecyclerView recyclerView;
+    FrameDB frameDB;
+    FrameListAdapter frameListAdapter;
     ProgressBar progressBar;
     private static final String PREF_ICMP_CHECKED = "isICMPChecked";
     private static final String PREF_TCP_CHECKED = "isTCPChecked";
@@ -35,18 +35,16 @@ public class SearchFrames extends AppCompatActivity implements DialogUse.OnImpor
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(frameListAdapter);
 
-        updateRecyclerView();
-
-        showProgressBar();
-
-        DialogUse.importFrames(SearchFrames.this, frameDB, this);
-
         SharedPreferences sharedPreferences = getSharedPreferences("my_app_settings", MODE_PRIVATE);
         sharedPreferences.registerOnSharedPreferenceChangeListener((preferences, key) -> {
-            if (key.equals(PREF_ICMP_CHECKED) || key.equals(PREF_TCP_CHECKED) || key.equals(PREF_UDP_CHECKED) || key.equals(PREF_HTTP_CHECKED)) {
-                updateRecyclerView();
-            }
+            updateRecyclerView();
         });
+
+        showProgressBar();
+        updateRecyclerView();
+
+        int whichPage = sharedPreferences.getInt("whichPage", 1);
+        DialogUse.importFrames(SearchFrames.this, frameDB, this, whichPage);
     }
 
     public void OpenSettings(View view) {
