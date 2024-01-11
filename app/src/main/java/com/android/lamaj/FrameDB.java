@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.CheckBox;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import org.apache.commons.codec.DecoderException;
@@ -87,29 +90,6 @@ public class FrameDB {
         db.delete("Frame", null, null);
     }
 
-    public static void importFrames(FrameDB frameDB) throws IOException, DecoderException {
-        int start = 1;
-        boolean continueImport = true;
-
-        while (continueImport) {
-            String jsonData = JsonReader.readJsonData("http://isis.unice.fr/~gj203594/ext/java/?start=" + start);
-
-            if (jsonData.isEmpty()) {
-                break;
-            }
-
-            try {
-                DataProcessor.processAndSaveData(frameDB, jsonData);
-            } catch (IOException | DecoderException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
-
-            start++;
-        }
-    }
-
     public List<FrameWireshark> getAllFramesFiltered(boolean isICMPChecked, boolean isTCPChecked, boolean isUDPChecked, boolean isHTTPChecked) {
         List<FrameWireshark> frameList = new ArrayList<>();
 
@@ -151,5 +131,30 @@ public class FrameDB {
         cursor.close();
 
         return frameList;
+    }
+
+    public FrameWireshark getFrameById(int frameId) {
+        Cursor cursor = db.query("Frame", null, "id=?", new String[]{String.valueOf(frameId)}, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex("id");
+            int ipSourceIndex = cursor.getColumnIndex("IPSource");
+            int ipDestinationIndex = cursor.getColumnIndex("IPDestination");
+            int protocolIndex = cursor.getColumnIndex("Protocol");
+            int payloadIndex = cursor.getColumnIndex("Payload");
+
+            int id = cursor.getInt(idIndex);
+            String IPSource = cursor.getString(ipSourceIndex);
+            String IPDestination = cursor.getString(ipDestinationIndex);
+            String Protocol = cursor.getString(protocolIndex);
+            String Payload = cursor.getString(payloadIndex);
+
+            cursor.close();
+
+            return new FrameWireshark(id, IPSource, IPDestination, Protocol, Payload);
+        } else {
+            cursor.close();
+            return null;
+        }
     }
 }

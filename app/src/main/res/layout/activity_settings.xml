@@ -19,8 +19,7 @@
             android:id="@+id/back"
             android:layout_height="30dp"
             android:layout_width="30dp"
-            style="@style/BackButton"
-            android:onClick="CloseSettings"/>
+            style="@style/BackButton"/>
 
         <TextView
             style="@style/MainTitle"
@@ -32,7 +31,7 @@
             android:text="Settings" />
 
     </RelativeLayout>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
@@ -49,6 +48,35 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Website page"
+                    style="@style/Text"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/BackgroundFrameContent"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp">
+                    <EditText
+                        style="@style/SettingsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/textPage"/>
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/addButton"
+                        android:id="@+id/addButton"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -129,5 +157,5 @@
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

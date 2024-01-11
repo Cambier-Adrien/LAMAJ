@@ -11,6 +11,7 @@
     <color name="TextColor_light">#3A4B44</color>
     <color name="buttonColor_light">#BBEBEF</color>
     <color name="textButtonColor_light">#2C5153</color>
+    <color name="contentBackground_light">#E2E2E2</color>
 
     <!-- Thème Sombre -->
 
@@ -19,5 +20,6 @@
     <color name="TextColor_dark">#B9CBC3</color>
     <color name="buttonColor_dark">#1E4D51</color>
     <color name="textButtonColor_dark">#B3E2E6</color>
+    <color name="contentBackground_dark">#3E3E42</color>
 
 </resources>

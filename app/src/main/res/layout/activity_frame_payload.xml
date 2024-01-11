@@ -19,20 +19,22 @@
             android:id="@+id/back"
             android:layout_height="30dp"
             android:layout_width="30dp"
-            style="@style/BackButton"
-            android:onClick="CloseSettings"/>
+            style="@style/BackButton"/>
 
         <TextView
             style="@style/MainTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_margin="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
             android:layout_toRightOf="@id/back"
-            android:text="Settings" />
+            android:text="Frame" />
 
     </RelativeLayout>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
@@ -40,7 +42,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
             <LinearLayout
                 android:id="@+id/body"
                 android:layout_width="match_parent"
@@ -48,20 +52,126 @@
                 android:layout_below="@+id/header"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                style="@style/BoxColor"
+                android:paddingBottom="20dp"
+                android:layout_marginTop="30dp">
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Address IP Source"
+                    style="@style/Text"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/BackgroundFrameContent"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="192.168.7.10"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/textSrc"/>
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/CopyButton"
+                        android:id="@+id/copyButtonSrc"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Address IP Destination"
+                    style="@style/Text"
+                    android:layout_marginBottom="10dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/BackgroundFrameContent"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="192.168.7.10"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/textDst"/>
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/CopyButton"
+                        android:id="@+id/copyButtonDst"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Protocol"
+                    style="@style/Text"
+                    android:layout_marginBottom="10dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/BackgroundFrameContent"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp">
+                    <TextView
+                        style="@style/SettingsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ICMP"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/textProtocol"/>
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/CopyButton"
+                        android:id="@+id/copyButtonProtocol"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:orientation="vertical"
+                style="@style/BoxColor"
+                android:paddingBottom="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Payload"
+                    style="@style/Text"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"/>
+                <View
+                    style="@style/Line"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"/>
+                <TextView
+                    style="@style/SettingsName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Text"
-                    android:text="Header content"
-                    android:layout_marginBottom="20dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Text"
-                    android:text="Payload Content"
-                    android:layout_marginBottom="20dp"/>
+                    android:text="Lorem Ipsum aegus noli"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/textPayload"/>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

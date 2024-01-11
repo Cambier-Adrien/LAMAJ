@@ -36,7 +36,6 @@
         <item name="android:textColor">@color/TextColor_light</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:layout_marginTop">30dp</item>
-
     </style>
 
     <style name="Import">
@@ -150,6 +149,7 @@
         <item name="android:textSize">15dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">@color/transparent</item>
     </style>
 
     <style name="SettingsCheck">
@@ -214,7 +214,7 @@
         <item name="android:src">@drawable/selector</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">@color/transparent</item>
+        <item name="backgroundTint">@color/transparent</item>
         <item name="android:tint">@color/textButtonColor_light</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_centerVertical">true</item>
@@ -229,10 +229,49 @@
 
     <style name="ImportSearch">
         <item name="android:background">@drawable/button_background_light</item>
-        <item name="android:backgroundTint">@color/box_color_light</item>
+        <item name="backgroundTint">@color/box_color_light</item>
         <item name="android:textColorHint">@color/TextColor_light</item>
         <item name="android:textColor">@color/TextColor_light</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="ButtonFragment">
+        <item name="android:background">@drawable/button_background_light</item>
+        <item name="android:backgroundTint">@color/box_color_light</item>
+    </style>
+
+    <style name="ButtonFragmentOn">
+        <item name="android:background">@drawable/button_background_light</item>
+        <item name="backgroundTint">@color/buttonColor_light</item>
+        <item name="android:textColor">@color/textButtonColor_light</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="ButtonFragmentOff">
+        <item name="android:background">@drawable/button_background_light</item>
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:textColor">@color/textButtonColor_light</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="BackgroundFrameContent">
+        <item name="android:background">@drawable/background_frame_content</item>
+        <item name="android:backgroundTint">@color/contentBackground_light</item>
+    </style>
+
+    <style name="CopyButton">
+        <item name="android:background">@drawable/copy</item>
+        <item name="backgroundTint">@color/TextColor_light</item>
+    </style>
+
+    <style name="addButton">
+        <item name="android:background">@drawable/add</item>
+        <item name="backgroundTint">@color/TextColor_light</item>
+    </style>
+
+    <style name="Line">
+        <item name="android:background">@color/contentBackground_light</item>
+        <item name="android:layout_height">1dp</item>
     </style>
 
     <style name="Theme.LAMAJ" parent="Base.Theme.LAMAJ" />

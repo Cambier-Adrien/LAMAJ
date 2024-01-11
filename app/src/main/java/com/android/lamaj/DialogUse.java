@@ -6,21 +6,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.os.AsyncTask;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.CheckBox;
 
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class DialogUse extends Context {
@@ -61,20 +56,6 @@ public abstract class DialogUse extends Context {
 
         save.setOnClickListener(view1 -> {
             frameDB.deleteAllFrames();
-            /* try {
-               FrameDB.importFrames(frameDB);
-            } catch (IOException | DecoderException e) {
-                e.printStackTrace();
-            } */
-            frameDB.saveFrame(new FrameWireshark(1,"192.168.1.1","100.10.9.9","TCP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(2,"192.168.1.1","100.10.9.4","TCP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(3,"192.168.1.2","100.10.9.4","UDP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(4,"192.168.1.2","100.10.9.9","ICMP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(5,"192.168.1.1","100.10.9.9","TCP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(6,"192.168.1.1","100.10.9.4","TCP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(7,"192.168.1.2","100.10.9.4","UDP","Hello"));
-            frameDB.saveFrame(new FrameWireshark(8,"192.168.1.2","100.10.9.9","ICMP","Hello"));
-
             Intent intent = new Intent(activity, SearchFrames.class);
             activity.startActivity(intent);
             dialogImport.dismiss();
@@ -105,23 +86,10 @@ public abstract class DialogUse extends Context {
 
         save.setOnClickListener(view1 -> {
             frameDB.deleteAllFrames();
-            try {
-                FrameDecoder frameDecoder = new FrameDecoder();
-                String hexFrame = "0001000100069020c2dfc0000000080600010800060400019020c2dfc000863b8bfe000000000000863b8bcd000000000000000000000000000000000000";
-                FrameWireshark frame = frameDecoder.decodeFrame(hexFrame);
-                String sourceIP = frame.getSourceIP();
-                String destinationIP = frame.getDestinationIP();
-                String protocol = frame.getProtocol();
-                String payload = frame.getPayload();
-                frameDB.saveFrame(new FrameWireshark(1, sourceIP, destinationIP, protocol, payload));
-               FrameDB.importFrames(frameDB);
-            } catch (IOException | DecoderException e) {
-                e.printStackTrace();
-            }
             Intent intent = new Intent(activity, SearchFrames.class);
             activity.startActivity(intent);
-            dialogChange.dismiss();
             activity.finish();
+            dialogChange.dismiss();
         });
     }
 
@@ -154,7 +122,7 @@ public abstract class DialogUse extends Context {
         });
     }
 
-    public static void updateRecyclerView(AppCompatActivity activity, FrameDB frameDB, RecyclerView recyclerView, FrameListAdapter adapter) {
+    public static void updateRecyclerView(AppCompatActivity activity, FrameDB frameDB, FrameListAdapter adapter) {
         SharedPreferences sharedPreferences = activity.getSharedPreferences("my_app_settings", Context.MODE_PRIVATE);
         boolean isICMPChecked = sharedPreferences.getBoolean("isICMPChecked", true);
         boolean isTCPChecked = sharedPreferences.getBoolean("isTCPChecked", true);
@@ -162,5 +130,42 @@ public abstract class DialogUse extends Context {
         boolean isHTTPChecked = sharedPreferences.getBoolean("isHTTPChecked", true);
 
         adapter.updateData(frameDB.getAllFramesFiltered(isICMPChecked, isTCPChecked, isUDPChecked, isHTTPChecked));
+    }
+
+    public interface OnImportCompleteListener {
+        void onImportComplete();
+    }
+
+    public static void importFrames(AppCompatActivity activity, FrameDB frameDB, OnImportCompleteListener listener) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                try {
+                    int start = 1;
+                    String jsonData = JsonReader.readJsonData("https://1dbd-46-193-6-178.ngrok-free.app/?start=" + start);
+
+                    try {
+                        DataProcessor.processAndSaveData(frameDB, jsonData);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    activity.runOnUiThread(() -> {
+                        // Mettez à jour l'UI ici si nécessaire
+                        // Par exemple, vous pourriez afficher une barre de progression
+
+                        // Informez l'activité que l'importation est terminée
+                        if (listener != null) {
+                            listener.onImportComplete();
+                        }
+                    });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+        }.execute();
     }
 }

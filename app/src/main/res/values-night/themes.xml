@@ -237,4 +237,43 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="ButtonFragment">
+        <item name="android:background">@drawable/button_background_dark</item>
+        <item name="android:backgroundTint">@color/box_color_dark</item>
+    </style>
+
+    <style name="ButtonFragmentOn">
+        <item name="android:background">@drawable/button_background_dark</item>
+        <item name="backgroundTint">@color/buttonColor_dark</item>
+        <item name="android:textColor">@color/textButtonColor_dark</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="ButtonFragmentOff">
+        <item name="android:background">@drawable/button_background_dark</item>
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:textColor">@color/textButtonColor_dark</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="BackgroundFrameContent">
+        <item name="android:background">@drawable/background_frame_content</item>
+        <item name="android:backgroundTint">@color/contentBackground_dark</item>
+    </style>
+
+    <style name="CopyButton">
+        <item name="android:background">@drawable/copy</item>
+        <item name="backgroundTint">@color/TextColor_dark</item>
+    </style>
+
+    <style name="addButton">
+        <item name="android:background">@drawable/add</item>
+        <item name="backgroundTint">@color/TextColor_dark</item>
+    </style>
+
+    <style name="Line">
+        <item name="android:background">@color/contentBackground_dark</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
 </resources>

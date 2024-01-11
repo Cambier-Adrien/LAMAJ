@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("my_app_settings", MODE_PRIVATE);
         File databaseFile = getDatabasePath("Frame.db");
 
-        // Check if the activity is being recreated due to a configuration change
         if (savedInstanceState == null) {
             if (sharedPreferences.getBoolean("isDarkMode", true)) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
