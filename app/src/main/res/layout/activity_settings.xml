@@ -83,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/Text"
-                    android:text="You will need to reload data for taking effect"
+                    android:text="You will need to change data for taking effect"
                     android:layout_marginTop="5dp"
                     android:textSize="15dp"/>
                 <TextView

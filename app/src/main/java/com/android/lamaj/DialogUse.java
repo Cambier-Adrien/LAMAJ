@@ -15,6 +15,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.apache.commons.codec.DecoderException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,7 +144,7 @@ public abstract class DialogUse extends Context {
             protected Void doInBackground(Void... voids) {
                 try {
                     frameDB.deleteAllFrames();
-                    String jsonData = JsonReader.readJsonData("https://3d08-46-193-6-178.ngrok-free.app/?start=" + start);
+                    String jsonData = JsonReader.readJsonData("https://0c49-46-193-6-178.ngrok-free.app/?start=" + start);
 
                     try {
                         DataProcessor.processAndSaveData(frameDB, jsonData);

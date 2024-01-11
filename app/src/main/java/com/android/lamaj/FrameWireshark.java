@@ -13,7 +13,6 @@ public class FrameWireshark {
     private String destinationIP;
     private String protocol;
     private String payload;
-    private boolean enabled;
 
     public FrameWireshark(int id, String sourceIP, String destinationIP, String protocol, String payload) {
         this.id = id;
