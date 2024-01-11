@@ -20,7 +20,6 @@
             android:layout_height="30dp"
             android:layout_width="30dp"
             style="@style/BackButton"/>
-
         <TextView
             style="@style/MainTitle"
             android:layout_width="wrap_content"
@@ -69,27 +68,17 @@
                     style="@style/BackgroundFrameContent"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp">
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="30dp"
-                        android:scrollbars="none"
-                        android:fillViewport="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:orientation="horizontal">
-                            <TextView
-                                style="@style/SettingsName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="192.168.7.10"
-                                android:layout_alignParentLeft="true"
-                                android:layout_centerVertical="true"
-                                android:id="@+id/textSrc"/>
-                        </LinearLayout>
-                    </HorizontalScrollView>
+                <TextView
+                    style="@style/SettingsName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="192.168.7.10"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/textSrc"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginRight="30dp"/>
                     <Button
                         android:layout_width="20dp"
                         android:layout_height="20dp"
@@ -110,27 +99,17 @@
                     style="@style/BackgroundFrameContent"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp">
-                    <HorizontalScrollView
+                    <TextView
+                        style="@style/SettingsName"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="30dp"
-                        android:scrollbars="none"
-                        android:fillViewport="true">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:orientation="horizontal">
-                            <TextView
-                            style="@style/SettingsName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="192.168.7.10"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:id="@+id/textDst"/>
-                        </LinearLayout>
-                    </HorizontalScrollView>
+                        android:layout_height="wrap_content"
+                        android:text="192.168.7.10"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/textDst"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_marginRight="30dp"/>
                     <Button
                         android:layout_width="20dp"
                         android:layout_height="20dp"

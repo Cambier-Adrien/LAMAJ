@@ -144,7 +144,7 @@ public abstract class DialogUse extends Context {
             protected Void doInBackground(Void... voids) {
                 try {
                     frameDB.deleteAllFrames();
-                    String jsonData = JsonReader.readJsonData("https://0c49-46-193-6-178.ngrok-free.app/?start=" + start);
+                    String jsonData = JsonReader.readJsonData("https://4688-46-193-6-178.ngrok-free.app/?start=" + start);
 
                     try {
                         DataProcessor.processAndSaveData(frameDB, jsonData);

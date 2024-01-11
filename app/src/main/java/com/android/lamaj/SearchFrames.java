@@ -31,7 +31,7 @@ public class SearchFrames extends AppCompatActivity implements DialogUse.OnImpor
         recyclerView = findViewById(R.id.frameList);
         progressBar = findViewById(R.id.progressBar);
         frameDB = FrameDB.getInstance(this);
-        frameListAdapter = new FrameListAdapter(this, new ArrayList<>());
+        frameListAdapter = new FrameListAdapter(new ArrayList<>());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(frameListAdapter);
 

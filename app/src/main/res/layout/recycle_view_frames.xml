@@ -13,39 +13,39 @@
         style="@style/FrameContainer"
         android:id="@+id/frameContainer"
         tools:ignore="MissingConstraints">
-        <HorizontalScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="30dp"
-            android:scrollbars="none"
-            android:fillViewport="true">
-
+            android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/IPsrc"
-                    android:text="192.168.7.10"
-                    style="@style/FrameText"/>
-
-                <TextView
-                    android:id="@+id/IPdst"
-                    android:layout_marginLeft="10dp"
-                    android:text="192.168.7.10"
-                    style="@style/FrameText"/>
-
                 <TextView
                     android:id="@+id/Protocol"
                     android:layout_marginLeft="10dp"
                     android:text="ICMP"
-                    style="@style/FrameText"/>
-
+                    style="@style/FrameText"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+                <TextView
+                    android:id="@+id/IPsrc"
+                    android:layout_marginLeft="10dp"
+                    android:text="192.168.7.10"
+                    style="@style/FrameText"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+                <TextView
+                    android:id="@+id/IPdst"
+                    android:layout_marginLeft="10dp"
+                    android:text="192.168.7.10"
+                    style="@style/FrameText"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
             </LinearLayout>
-
-        </HorizontalScrollView>
+        </LinearLayout>
 
 
         <ImageButton

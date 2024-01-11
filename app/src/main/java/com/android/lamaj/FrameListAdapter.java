@@ -14,10 +14,8 @@ import java.util.List;
 
 public class FrameListAdapter extends RecyclerView.Adapter<FrameListAdapter.FrameItemViewHolder> {
     private List<FrameWireshark> frames;
-    private Context context;
 
-    public FrameListAdapter(Context context, List<FrameWireshark> frames) {
-        this.context = context;
+    public FrameListAdapter(List<FrameWireshark> frames) {
         this.frames = frames;
     }
 
@@ -32,28 +30,7 @@ public class FrameListAdapter extends RecyclerView.Adapter<FrameListAdapter.Fram
     public void onBindViewHolder(@NonNull FrameItemViewHolder holder, int position) {
         FrameWireshark frame = frames.get(position);
 
-        String IPSource = frame.getSourceIP();
-        String IPDestination = frame.getDestinationIP();
-        String protocol = frame.getProtocol();
-        int frameId = frame.getID();
-
-        holder.IPSrc.setText(IPSource);
-        holder.IPDst.setText(IPDestination);
-        holder.Protocol.setText(protocol);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FrameWireshark clickedFrame = FrameDB.getInstance(context).getFrameById(frameId);
-
-                Intent intent = new Intent(context, FramePayload.class);
-                intent.putExtra("IPSrc", clickedFrame.getSourceIP());
-                intent.putExtra("IPDst", clickedFrame.getDestinationIP());
-                intent.putExtra("Protocol", clickedFrame.getProtocol());
-                intent.putExtra("Payload", clickedFrame.getPayload());
-                context.startActivity(intent);
-            }
-        });
+        holder.bindData(frame);
     }
 
     @Override
@@ -65,12 +42,44 @@ public class FrameListAdapter extends RecyclerView.Adapter<FrameListAdapter.Fram
         TextView IPSrc;
         TextView IPDst;
         TextView Protocol;
+        Context context;
 
         public FrameItemViewHolder(@NonNull View itemView) {
             super(itemView);
             IPSrc = itemView.findViewById(R.id.IPsrc);
             IPDst = itemView.findViewById(R.id.IPdst);
             Protocol = itemView.findViewById(R.id.Protocol);
+            context = itemView.getContext();
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        FrameWireshark clickedFrame = frames.get(position);
+                        startFramePayloadActivity(clickedFrame);
+                    }
+                }
+            });
+        }
+
+        public void bindData(FrameWireshark frame) {
+            String IPSource = frame.getSourceIP();
+            String IPDestination = frame.getDestinationIP();
+            String protocol = frame.getProtocol();
+
+            IPSrc.setText(IPSource);
+            IPDst.setText(IPDestination);
+            Protocol.setText(protocol);
+        }
+
+        private void startFramePayloadActivity(FrameWireshark frame) {
+            Intent intent = new Intent(context, FramePayload.class);
+            intent.putExtra("IPSrc", frame.getSourceIP());
+            intent.putExtra("IPDst", frame.getDestinationIP());
+            intent.putExtra("Protocol", frame.getProtocol());
+            intent.putExtra("Payload", frame.getPayload());
+            context.startActivity(intent);
         }
     }
 

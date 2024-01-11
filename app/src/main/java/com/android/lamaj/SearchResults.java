@@ -84,7 +84,7 @@ public class SearchResults extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.frameList);
 
         if (searchText.length() > 0) {
-            FrameListAdapter adapter = new FrameListAdapter(this, getFilteredFrames(searchText));
+            FrameListAdapter adapter = new FrameListAdapter(getFilteredFrames(searchText));
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }

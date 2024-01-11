@@ -55,7 +55,7 @@
                     style="@style/SearchBar"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Search per IP"
+                    android:hint="Search per Protocol"
                     android:paddingLeft="20dp"
                     android:paddingRight="60dp"
                     android:singleLine="true"
@@ -79,12 +79,24 @@
                         style="@style/SearchSettings">
                         <TextView
                             style="@style/SettingsName"
+                            android:text="Per Protocol"
+                            android:layout_width="wrap_content"/>
+                        <CheckBox
+                            android:id="@+id/SearchProtocol"
+                            style="@style/SettingsCheck"
+                            android:checked="true"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/SearchSettings">
+                        <TextView
+                            style="@style/SettingsName"
                             android:text="Per IP Source"
                             android:layout_width="wrap_content"/>
                         <CheckBox
                             android:id="@+id/SearchIpSrc"
-                            style="@style/SettingsCheck"
-                            android:checked="true"/>
+                            style="@style/SettingsCheck" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -96,18 +108,6 @@
                             android:layout_width="wrap_content"/>
                         <CheckBox
                             android:id="@+id/SearchIpDst"
-                            style="@style/SettingsCheck"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/SearchSettings">
-                        <TextView
-                            style="@style/SettingsName"
-                            android:text="Per Protocol"
-                            android:layout_width="wrap_content"/>
-                        <CheckBox
-                            android:id="@+id/SearchProtocol"
                             style="@style/SettingsCheck"/>
                     </LinearLayout>
                 </LinearLayout>

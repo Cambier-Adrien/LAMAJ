@@ -73,70 +73,17 @@ public class FrameDecoder {
         switch (etherTypeValue) {
             case 0x0800:
                 return "IPv4";
-            case 0x0806:
-                return "ARP";
-            case 0x0801:
-                return "MPLS Unicast";
-            case 0x0802:
-                return "MPLS Multicast";
-            case 0x0835:
-                return "RARP";
-            case 0x0842:
-                return "Wake-on-LAN";
-            case 0x22F3:
-                return "IETF TRILL";
-            case 0x6003:
-                return "DECnet Phase IV";
-            case 0x8035:
-                return "Reverse ARP";
-            case 0x809B:
-                return "AppleTalk";
             case 0x86DD:
                 return "IPv6";
-            case 0x8808:
-                return "Ethernet flow control";
-            case 0x8847:
-                return "MPLS unicast";
-            case 0x8848:
-                return "MPLS multicast";
-            case 0x9000:
-                return "Ethernet II";
-            case 0x0100:
-                return "ICMP";
-            case 0x0600:
-                return "TCP";
-            case 0x1100:
-                return "UDP";
-            case 0x5000:
-                return "ESP";
-            case 0x8400:
-                return "ICMPv6";
-            case 0x8900:
-                return "OSPF";
-            case 0x8f00:
-                return "L2TP";
-            case 0x8000:
-                return "HTTP";
+            case 0x0806:
+                return "ARP";
             default:
                 return "Other : " + etherTypeValue;
         }
     }
 
     private static String getPayload() {
-        int payloadPosition = 40;
-        int payloadLength = hexFrame.length() - payloadPosition;
-        String payloadHex = hexFrame.substring(payloadPosition);
-
-        StringBuilder payloadText = new StringBuilder();
-        for (int i = 0; i < payloadHex.length(); i += 2) {
-            String hexByte = payloadHex.substring(i, i + 2);
-            int decimalValue = Integer.parseInt(hexByte, 16);
-            char asciiChar = (char) decimalValue;
-
-            payloadText.append(asciiChar);
-        }
-
-        return payloadText.toString();
+        return hexFrame;
     }
 
 
